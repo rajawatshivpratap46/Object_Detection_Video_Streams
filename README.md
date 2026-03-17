@@ -4,6 +4,14 @@
 
 ---
 
+## 🚀 Live Demo  
+
+🔗 **Try the App Here:**  
+👉 https://your-live-demo-link.com  
+
+🎥 **Demo Video:**  
+👉 https://your-demo-video-link.com  
+
 ## 🧠 Overview  
 
 This frontend application serves as the **user interface** for the Object Detection system. It allows users to interact with the backend AI model, upload or stream video input, and visualize detected objects in real time.  
