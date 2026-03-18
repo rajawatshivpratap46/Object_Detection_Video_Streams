@@ -1,139 +1,194 @@
-# 🎯 Object Detection Video Streams – Frontend  
+🎯 Real-Time Object Detection using Video Streams
 
-🚀 A responsive frontend interface for a real-time **Object Detection System**, designed to visualize AI-powered detections on video streams using an interactive user interface.
+🚀 A full-stack AI-powered application that performs real-time object detection on video streams using OpenCV, MobileNetSSD, and YOLOv8, with a responsive frontend for visualization.
 
----
+🧠 Overview
 
-## 🚀 Live Demo  
+This project detects objects from live webcam/video streams and displays results with bounding boxes, class labels, and confidence scores.
 
-🔗 **Try the App Here:**  
-👉 https://your-live-demo-link.com  
+It follows a modular architecture:
 
-🎥 **Demo Video:**  
-👉 https://your-demo-video-link.com  
+🔹 Backend → AI model + detection logic
 
-## 🧠 Overview  
+🔹 Frontend → UI for visualization
 
-This frontend application serves as the **user interface** for the Object Detection system. It allows users to interact with the backend AI model, upload or stream video input, and visualize detected objects in real time.  
+🔹 Output → Saved results (GIF/video)
 
-The project demonstrates seamless integration between **Computer Vision (AI backend)** and a **dynamic web-based frontend**.
+📁 Project Structure
 
----
+      REAL-TIME-OBJECT-DETECTION/
+      │
+      ├── backend/
+      │   ├── __pycache__/
+      │   ├── __init__.py
+      │   ├── app.py                  # Backend server (Flask/FastAPI)
+      │   ├── detection.py            # Core detection logic
+      │   ├── utils.py                # Helper functions
+      │   ├── requirements.txt        # Dependencies
+      │   ├── yolov8n.pt              # YOLOv8 model
+      │   ├── MobileNetSSD_deploy.caffemodel
+      │   └── MobileNetSSD_deploy.prototxt.txt
+      │
+      ├── UI/                         # Frontend (HTML/CSS/JS)
+      │
+      ├── real_time_output_gif/       # Output results
+      │
+      ├── real_time_object_detection.py   # Main entry script
+      ├── README.md
+      ├── .gitignore
+      └── venv/
+      
+✨ Features
 
-## ✨ Features  
+    🎥 Real-time video stream detection
+    
+    🎯 Object detection using YOLOv8 + MobileNetSSD
+    
+    📦 Bounding boxes with labels & confidence
+    
+    🌐 Frontend UI for visualization
+    
+    ⚡ Fast processing using OpenCV
 
-- 🎥 **Video Stream Interface**  
-  Upload or stream video input for object detection  
+💾 Save output as GIF/video
 
-- 🎯 **Real-Time Detection Display**  
-  Shows detected objects with bounding boxes and labels  
+🛠️ Tech Stack
 
-- ⚡ **Interactive UI**  
-  Smooth and user-friendly interface for better experience  
+    🔹 Backend
+    
+        Python
+        
+        OpenCV
+        
+        YOLOv8 (Ultralytics)
+        
+        MobileNetSSD
+    
+    🔹 Frontend
+    
+        HTML
+        
+        CSS
+        
+        JavaScript
 
-- 🔗 **Backend Integration**  
-  Connects with AI model (OpenCV / YOLO) for processing  
-
-- 📱 **Responsive Design**  
-  Works across different screen sizes and devices  
-
----
-
-## 🛠️ Tech Stack  
-
-- HTML  
-- CSS  
-- JavaScript  
-- REST API Integration  
-
----
-
-## 🧩 System Flow  
-User Input (Video Upload / Stream)
-          ↓
-Frontend UI (HTML/CSS/JS)
-          ↓
-API Request → Backend (AI Model)
-          ↓
-Processed Output (Detected Objects)
-          ↓
-Display on UI (Bounding Boxes + Labels)
-
-## ⚙️ How It Works  
-
-1. User uploads or streams video input  
-2. Frontend sends request to backend API  
-3. Backend processes video using AI model  
-4. Detection results are returned  
-5. Frontend displays results visually  
-
----
-
-## 📸 Screenshots  
-
-(Add your UI screenshots here)*  
-
-```md
-
-🎥 Demo
-![Demo](./assets/demo.gif)
+⚙️ Installation & Setup
 
 
-📈 Concepts Demonstrated
+Follow step-by-step:
 
-Frontend Development (HTML, CSS, JavaScript)
+🔹 1. Clone the Repository
 
-API Integration with AI Backend
+      git clone https://github.com/rajawatshivpratap46/Object_Detection_Video_Streams.git
+      cd Object_Detection_Video_Streams
+      
+🔹 2. Create Virtual Environment
 
-Real-Time Data Visualization
+       python -m venv venv
 
-UI/UX Design for AI Applications
+Activate it:
 
-🚀 Getting Started
-1️⃣ Clone Repository
-git clone https://github.com/rajawatshivpratap46/Object_Detection_Video_Streams.git
-cd Object_Detection_Video_Streams/frontend
-2️⃣ Run Frontend
+    👉 Windows:
+    
+        venv\Scripts\activate
+
+
+🔹 3. Install Dependencies
+
+    pip install -r backend/requirements.txt
+    
+🔹 4. Run Backend Server
+
+    cd backend
+    python app.py
+
+👉 Server will start:
+
+    http://127.0.0.1:5000/
+    
+🔹 5. Run Main Detection Script (Optional Direct Mode)
+
+    python real_time_object_detection.py
+
+👉 This will:
+
+    Start webcam
+    
+    Detect objects in real-time
+
+🔹 6. Run Frontend UI
+
+    Go to UI folder:
+    
+    cd UI
 
 👉 Option 1 (Simple):
 
-Open index.html directly in browser
+Open index.html in browser
 
-👉 Option 2 (Recommended):
+🔹 7. Connect Frontend with Backend
 
-# using live server (VS Code)
-Right click → Open with Live Server
-3️⃣ Connect Backend
+Make sure:
 
-Make sure backend server is running:
+Backend is running
 
-python app.py
+API URL in JS file is correct:
 
-🌐 Usage
+Example:
 
-Upload video or start stream
+    http://127.0.0.1:5000/detect
 
-View detected objects in real time
+🔄 System Flow
 
-Interact with UI for better visualization
+    Video Input (Webcam / Upload)
+            ↓
+    Frontend UI (HTML/CSS/JS)
+            ↓
+    API Request → Backend (app.py)
+            ↓
+    Detection Logic (YOLO / OpenCV)
+            ↓
+    Processed Frames
+            ↓
+    Display (Bounding Boxes + Labels)
 
+📸 Demo
+![Demo](./real_time_output_gif/demo.gif)
+📈 Concepts Demonstrated
+
+    Computer Vision (Object Detection)
+    
+    Deep Learning Model Integration
+    
+    Real-Time Video Processing
+    
+    REST API Integration
+    
+    Full Stack Development
+    
+    UI/UX for AI Applications
 
 🚀 Future Improvements
 
-🎯 Live webcam integration
+🎥 Live webcam streaming in browser
 
-📊 Detection analytics dashboard
+📊 Analytics dashboard
 
-🌐 Deploy as full-stack web app
+☁️ Deployment (AWS / Render / Vercel)
 
-⚡ Performance optimization
+⚡ GPU acceleration
+
+📱 Mobile responsiveness
 
 
 👨‍💻 Author
 
-Shivkumar Rajawat
+Shivpratap Rajawat
+
 📧 shiva18021912@gmail.com
 
-🔗 GitHub: https://github.com/rajawatshivpratap46
+🔗 GitHub:
+https://github.com/rajawatshivpratap46
 
-🔗 LinkedIn: https://www.linkedin.com/in/shiva-rajawat/
+🔗 LinkedIn:
+https://www.linkedin.com/in/shiva-rajawat/
